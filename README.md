@@ -26,8 +26,8 @@ pip install selenium
 
 ##Usage
 ```
-  1. First you need to add your accounts with password in users.txt file
-  2. Second you need to add your proxies in proxies.txt file
+  1. Add your accounts with password in users.txt file
+  2. Add your proxies in proxies.txt file
   3. Run bot: python Twitch-Farmer.py
 ```
 
