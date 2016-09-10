@@ -1,4 +1,4 @@
-#Twitch-Farmer
+#Twitch follower bot farmer (Twitch-Farmer)
 Twitch Farmer is a bot that helps you to get more followers
 Often when new twitch streamers start, they come to realize that their content does not get the quality it deserves. Due to the nature of Twitch, to sort the channels based on the follower count, new streamers do not get a chance at all to present their content
 Twitch Farmer bot presents the solution, by offering all the needed features, to boost your channel in the ranks, whilst maintaining a natural look to other real viewers.
