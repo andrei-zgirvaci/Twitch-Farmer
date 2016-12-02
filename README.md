@@ -18,6 +18,7 @@ To install this bot, clone this repo:
 ##Requirements
   1. **_python_** version > **_3_** installed
   2. **_selenium module_** installed
+  3. **_ChromeDriver_** installed - http://splinter.readthedocs.io/en/0.1/setup-chrome.html
 
 You can install selenium by typing next line:
 ```
@@ -28,7 +29,7 @@ pip install selenium
 ```
   1. Add your accounts with password in users.txt file
   2. Add your proxies in proxies.txt file
-  3. Run bot: python Twitch-Farmer.py
+  3. Run bot: python3 Twitch-Farmer.py
 ```
 
 ##License
