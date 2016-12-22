@@ -55,7 +55,7 @@ def Login(twitchUsername, twitchPassword):
 
     usernameFieldID = "username"
     passwordFieldName = "password"
-    loginButtonXpath = "//input[@value='Log In']"
+#     loginButtonXpath = "//input[@value='Log In']"
     incorrectCapthaXpath = "//*[@id='loginForm']/div[contains(text(), 'Please complete the CAPTCHA correctly.')]"
     incorrectUserXpath = "//*[@id='loginForm']/div[contains(text(), 'Incorrect username or password.')]"
     searchFieldID = "query"
@@ -66,7 +66,8 @@ def Login(twitchUsername, twitchPassword):
     try:
         usernameFieldElement = WebDriverWait(driver, delay + 5).until(EC.presence_of_element_located((By.ID, usernameFieldID)))
         passwordFieldElement = driver.find_element_by_name(passwordFieldName)
-        loginButtonElement = driver.find_element_by_xpath(loginButtonXpath)
+        # loginButtonElement = driver.find_element_by_xpath(loginButtonXpath)
+        loginButtonElement = driver.find_element_by_class_name('js-login-button')
         usernameFieldElement.clear()
         usernameFieldElement.send_keys(twitchUsername)
         passwordFieldElement.clear()
