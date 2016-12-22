@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 
+
 def SetUp(Proxy, username, password):
     global driver
     print("using proxy: " + str(Proxy) + '\n')
@@ -19,6 +20,7 @@ def SetUp(Proxy, username, password):
     driver.set_page_load_timeout(20)
 
     Login(username, password)
+
 
 def change_proxy(twitchUsername, twitchPassword):
     global proxy_count
@@ -35,11 +37,12 @@ def change_proxy(twitchUsername, twitchPassword):
         print("------------------------------------------- " + '\n')
         driver.quit()
 
+
 def Login(twitchUsername, twitchPassword):
     print("using username: " + str(twitchUsername) + '\n')
     print("using password: " + str(twitchPassword) + '\n')
     print("------------------------------------------- " + '\n')
-    
+
     try:
         driver.get("https://www.twitch.tv/login")
         #driver.get("http://whatismyipaddress.com")
@@ -55,14 +58,14 @@ def Login(twitchUsername, twitchPassword):
 
     usernameFieldID = "username"
     passwordFieldName = "password"
-    loginButtonXpath = "//input[@value='Log In']"
+    loginButtonXpath = '//*[@id="loginForm"]/div[3]/button'
     incorrectCapthaXpath = "//*[@id='loginForm']/div[contains(text(), 'Please complete the CAPTCHA correctly.')]"
     incorrectUserXpath = "//*[@id='loginForm']/div[contains(text(), 'Incorrect username or password.')]"
     searchFieldID = "query"
     channelXpath= "//*[@id='channel']/div/div[2]/p"  
     delay = 15
 
-    #checks if login page is loaded
+    # checks if login page is loaded
     try:
         usernameFieldElement = WebDriverWait(driver, delay + 5).until(EC.presence_of_element_located((By.ID, usernameFieldID)))
         passwordFieldElement = driver.find_element_by_name(passwordFieldName)
@@ -74,9 +77,10 @@ def Login(twitchUsername, twitchPassword):
         loginButtonElement.click()
         Logged(twitchUsername, twitchPassword)
     except TimeoutException:
-        print ("Time expired, changing proxy!!!(1)" + '\n')
+        print("Time expired, changing proxy!!!(1)" + '\n')
         print("------------------------------------------- " + '\n')
         change_proxy(twitchUsername, twitchPassword)
+
 
 def Logged(twitchUsername, twitchPassword):
     global oldProxy
