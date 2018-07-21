@@ -163,4 +163,4 @@ for username, password in credentials:
                 SetUp(proxies[proxy_count], username, password)
                 proxy_count += 1
 
-    print ("Bot Stopped!!!")
+print ("Bot Stopped!!!")
