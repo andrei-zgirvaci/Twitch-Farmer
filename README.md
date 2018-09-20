@@ -18,7 +18,6 @@ To install this bot, clone this repo:
 ## Requirements
   1. **_python_** version > **_3_** installed
   2. **_selenium module_** installed
-  3. **_ChromeDriver_** installed - http://splinter.readthedocs.io/en/0.1/setup-chrome.html
 
 You can install selenium by typing next line:
 ```
