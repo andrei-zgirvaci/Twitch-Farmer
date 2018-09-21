@@ -19,6 +19,8 @@ delay = 10
 page_elements = None
 
 
+# TODO: delete accounts and proxies from the csv files
+
 def follow_channel(username, follow_channel_name):
     global delay
 
@@ -56,7 +58,7 @@ def follow_channel(username, follow_channel_name):
             return False
 
 
-def sign_in(username, passowrd):
+def sign_in(username, password):
     global proxy_timeout
     global delay
 
@@ -77,7 +79,7 @@ def sign_in(username, passowrd):
         username_input.clear()
         username_input.send_keys(username)
         password_input.clear()
-        password_input.send_keys(passowrd)
+        password_input.send_keys(password)
 
         login_button.click()
 
@@ -123,8 +125,8 @@ def main():
     for i, (username, password) in enumerate(zip(username_rows, password_rows)):
         print("--------------------------------")
 
-        # change proxy
-        run_driver(True)
+        # TODO: change back to True in production
+        run_driver(False)
 
         sign_in_status = sign_in(username, password)
 
@@ -133,8 +135,8 @@ def main():
             print("Time expired, changing proxy...")
             print("Using previous account: [{}]\n".format(username))
 
-            # change proxy
-            run_driver(True)
+            # TODO: change back to True in production
+            run_driver(False)
 
             sign_in_status = sign_in(username, password)
 
@@ -149,7 +151,7 @@ def main():
                 accounts_csv.to_csv(accounts_csv_path, sep=',',
                                     index=False, index_label=False)
 
-                print("[{}] An error ocured while trying to follow: [{}]!!!".format(
+                print("[{}] An error ocurred while trying to follow: [{}]!!!".format(
                     username, follow_channel_name))
     print("--------------------------------")
     print("No more accounts!!!")
