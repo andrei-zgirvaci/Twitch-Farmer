@@ -1,0 +1,30 @@
+{
+    "username_input": {
+        "type": "xPath",
+        "value": "//div[contains(@data-a-target,'login-username-input')]/input"
+    },
+    "password_input": {
+        "type": "xPath",
+        "value": "//div[contains(@data-a-target,'login-password-input')]/input"
+    },
+    "login_button": {
+        "type": "xPath",
+        "value": "//button[contains(@data-a-target,'passport-login-button')]"
+    },
+    "auth_failed": {
+        "type": "xPath",
+        "value": "//div[contains(@class, 'server-message-alert')]"
+    },
+    "my_account": {
+        "type": "xPath",
+        "value": "//div[contains(@data-a-target, 'user-display-name')]"
+    },
+    "recaptcha": {
+        "type": "xPath",
+        "value": "//div[contains(@id, 'recaptcha-element-container')]"
+    },
+    "follow_button": {
+        "type": "xPath",
+        "value": "//div[contains(@data-target, 'channel-header-right')]//button[contains(@data-a-target, 'follow-button')]"
+    }
+}
