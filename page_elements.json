@@ -1,38 +1,38 @@
 {
     "username_input": {
         "type": "xPath",
-        "value": "//div[contains(@data-a-target,'login-username-input')]/input"
+        "value": "//div[@data-a-target='login-username-input']/input"
     },
     "password_input": {
         "type": "xPath",
-        "value": "//div[contains(@data-a-target,'login-password-input')]/input"
+        "value": "//div[@data-a-target='login-password-input']/input"
     },
     "login_button": {
         "type": "xPath",
-        "value": "//button[contains(@data-a-target,'passport-login-button')]"
+        "value": "//button[@data-a-target='passport-login-button']"
     },
     "my_account": {
         "type": "xPath",
-        "value": "//div[contains(@data-a-target, 'user-display-name')]"
+        "value": "//div[@data-a-target='user-display-name']"
     },
-    "following_account": {
+    "nonexistent_channel": {
         "type": "xPath",
-        "value": "//div[contains(@class, 'channel-header')]"
+        "value": "//a[@data-a-target='browse-channels-button']"
     },
     "follow_button": {
         "type": "xPath",
-        "value": "//div[contains(@data-target, 'channel-header-right')]//button[contains(@data-a-target, 'follow-button')]"
+        "value": "//div[@data-target='channel-header-right']//button[@data-a-target='follow-button']"
     },
     "unfollow_button": {
         "type": "xPath",
-        "value": "//div[contains(@data-target, 'channel-header-right')]//button[contains(@data-a-target, 'unfollow-button')]"
+        "value": "//div[@data-target='channel-header-right']//button[@data-a-target='unfollow-button']"
     },
     "auth_failed": {
         "type": "xPath",
-        "value": "//div[contains(@class, 'server-message-alert')]"
+        "value": "//div[contains(@class,'server-message-alert ')]"
     },
     "recaptcha": {
         "type": "xPath",
-        "value": "//div[contains(@id, 'recaptcha-element-container')]"
+        "value": "//div[@id='recaptcha-element-container']"
     }
 }

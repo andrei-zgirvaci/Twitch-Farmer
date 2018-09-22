@@ -1,6 +1,7 @@
 import sys
 import os
 from pathlib import Path
+from time import sleep
 
 from selenium import webdriver
 import pandas
@@ -15,7 +16,8 @@ from selenium.common.exceptions import TimeoutException
 driver = None
 current_proxy = None
 proxy_timeout = False
-delay = 10
+# TODO: for debuging, change back to 10 when in production
+delay = 60
 page_elements = None
 
 
@@ -29,10 +31,13 @@ def follow_channel(username, follow_channel_name):
     try:
         driver.get("https://www.twitch.tv/{}".format(follow_channel_name))
 
-        follow_button = WebDriverWait(driver, delay).until(
-            EC.presence_of_element_located((By.XPATH, get_page_element("follow_button"))))
+        follow_button = driver.find_element_by_xpath(
+            get_page_element("follow_button"))
 
         follow_button.click()
+
+        # wait for request
+        sleep(5)
 
         print("[{}] Successfully followed: [{}]".format(
             username, follow_channel_name))
@@ -45,12 +50,16 @@ def follow_channel(username, follow_channel_name):
 
             print("[{}] Is already following: [{}], moving on the next user!!!".format(
                 username, follow_channel_name))
+            
+            return True
         except:
             try:
                 driver.find_element_by_xpath(
-                    get_page_element("following_account"))
+                    get_page_element("nonexistent_channel"))
+                
                 print("No channel: [{}] found, exiting!!!".format(
                     follow_channel_name))
+                
                 exit()
             except:
                 pass
@@ -180,7 +189,7 @@ def find_available_proxy():
     for i, (proxy, status) in enumerate(zip(proxy_rows, status_rows)):
         if i == len(proxy_rows) - 1 and status == "USED":
             print("--------------------------------")
-            print("No more proxies!!!")            
+            print("No more proxies!!!")
             print("--------------------------------")
             exit()
         elif pandas.isnull(status):
