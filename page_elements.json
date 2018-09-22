@@ -1,0 +1,38 @@
+{
+    "username_input": {
+        "type": "xPath",
+        "value": "//div[@data-a-target='login-username-input']/input"
+    },
+    "password_input": {
+        "type": "xPath",
+        "value": "//div[@data-a-target='login-password-input']/input"
+    },
+    "login_button": {
+        "type": "xPath",
+        "value": "//button[@data-a-target='passport-login-button']"
+    },
+    "my_account": {
+        "type": "xPath",
+        "value": "//div[@data-a-target='user-display-name']"
+    },
+    "nonexistent_channel": {
+        "type": "xPath",
+        "value": "//a[@data-a-target='browse-channels-button']"
+    },
+    "follow_button": {
+        "type": "xPath",
+        "value": "//div[@data-target='channel-header-right']//button[@data-a-target='follow-button']"
+    },
+    "unfollow_button": {
+        "type": "xPath",
+        "value": "//div[@data-target='channel-header-right']//button[@data-a-target='unfollow-button']"
+    },
+    "auth_failed": {
+        "type": "xPath",
+        "value": "//div[contains(@class,'server-message-alert ')]"
+    },
+    "recaptcha": {
+        "type": "xPath",
+        "value": "//div[@id='recaptcha-element-container']"
+    }
+}
