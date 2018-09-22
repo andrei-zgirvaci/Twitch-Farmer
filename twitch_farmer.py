@@ -16,12 +16,9 @@ from selenium.common.exceptions import TimeoutException
 driver = None
 current_proxy = None
 proxy_timeout = False
-# TODO: for debuging, change back to 10 when in production
-delay = 60
+delay = 10
 page_elements = None
 
-
-# TODO: delete accounts and proxies from the csv files
 
 def follow_channel(username, follow_channel_name):
     global delay
@@ -50,16 +47,16 @@ def follow_channel(username, follow_channel_name):
 
             print("[{}] Is already following: [{}], moving on the next user!!!".format(
                 username, follow_channel_name))
-            
+
             return True
         except:
             try:
                 driver.find_element_by_xpath(
                     get_page_element("nonexistent_channel"))
-                
+
                 print("No channel: [{}] found, exiting!!!".format(
                     follow_channel_name))
-                
+
                 exit()
             except:
                 pass
@@ -132,36 +129,36 @@ def main():
 
     # go through every account in .csv
     for i, (username, password) in enumerate(zip(username_rows, password_rows)):
-        print("--------------------------------")
-
-        # TODO: change back to True in production
-        run_driver(False)
-
-        sign_in_status = sign_in(username, password)
-
-        while sign_in_status is False and proxy_timeout:
+        if pandas.isnull(username) is False or pandas.isnull(password) is False:
             print("--------------------------------")
-            print("Time expired, changing proxy...")
-            print("Using previous account: [{}]\n".format(username))
 
-            # TODO: change back to True in production
-            run_driver(False)
+            run_driver(True)
 
             sign_in_status = sign_in(username, password)
 
-        if sign_in_status:
-            if follow_channel(username, follow_channel_name):
-                accounts_csv.at[i, 'following_channel'] = follow_channel_name
-                accounts_csv.at[i, 'used_proxy'] = current_proxy
-                accounts_csv.to_csv(accounts_csv_path, sep=',',
-                                    index=False, index_label=False)
-            else:
-                accounts_csv.at[i, 'following_channel'] = "ERROR"
-                accounts_csv.to_csv(accounts_csv_path, sep=',',
-                                    index=False, index_label=False)
+            while sign_in_status is False and proxy_timeout:
+                print("--------------------------------")
+                print("Time expired, changing proxy...")
+                print("Using previous account: [{}]\n".format(username))
 
-                print("[{}] An error ocurred while trying to follow: [{}]!!!".format(
-                    username, follow_channel_name))
+                run_driver(True)
+
+                sign_in_status = sign_in(username, password)
+
+            if sign_in_status:
+                if follow_channel(username, follow_channel_name):
+                    accounts_csv.at[i,
+                                    'following_channel'] = follow_channel_name
+                    accounts_csv.at[i, 'used_proxy'] = current_proxy
+                    accounts_csv.to_csv(accounts_csv_path, sep=',',
+                                        index=False, index_label=False)
+                else:
+                    accounts_csv.at[i, 'following_channel'] = "ERROR"
+                    accounts_csv.to_csv(accounts_csv_path, sep=',',
+                                        index=False, index_label=False)
+
+                    print("[{}] An error ocurred while trying to follow: [{}]!!!".format(
+                        username, follow_channel_name))
     print("--------------------------------")
     print("No more accounts!!!")
     print("--------------------------------")
