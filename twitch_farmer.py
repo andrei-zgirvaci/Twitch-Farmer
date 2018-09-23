@@ -72,7 +72,6 @@ def sign_in(username, password):
 
     try:
         driver.get("https://www.twitch.tv/login")
-        # driver.get("http://whatismyipaddress.com")
 
         username_input = WebDriverWait(driver, delay).until(
             EC.presence_of_element_located((By.XPATH, get_page_element("username_input"))))
@@ -212,7 +211,7 @@ def run_driver(run_with_proxy):
 
         if current_proxy:
             chrome_options.add_argument(
-                '--proxy-server=socks5://' + current_proxy)
+                "--proxy-server={}".format(current_proxy))
             print("Using proxy: [{}]".format(current_proxy))
 
     chrome_driver_path = get_full_path("/drivers/chromedriver")
