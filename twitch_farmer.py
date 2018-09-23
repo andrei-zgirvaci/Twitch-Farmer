@@ -170,7 +170,7 @@ def get_page_element(input):
 
 
 def get_full_path(file_path):
-    return Path("{}{}".format(os.getcwd(), file_path))
+    return str(Path("{}{}".format(os.getcwd(), file_path)))
 
 
 def find_available_proxy():
