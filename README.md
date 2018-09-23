@@ -50,8 +50,6 @@ You only need to specify the **proxy**. The **status** column is filled by the b
 |---|---|
 |_192.168.0.1:3000_||
 
-*_Take in mind that proxy should be of type **SOCKS5**_
-
 ## Maintaining this project
 
 Now and then Twich changes it's elements ids, classes, etc. In order for the bot to work even after this changes, you need to change the value of a specific object in the _page_elements.json_ file.
