@@ -23,9 +23,7 @@ CONTRIBUTE: Contributions are always welcome!
   
   cd Twitch-Farmer
   
-  pip install selenium
-  
-  pip install pandas
+  pip install selenium pandas
 
   python3 twitch_farmer.py
 ```
