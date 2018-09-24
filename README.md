@@ -19,15 +19,15 @@ CONTRIBUTE: Contributions are always welcome!
 ## Installation
 
 ```bash
-  git clone https://github.com/MD3XTER/Twitch-Farmer.git
-  
-  cd Twitch-Farmer
-  
-  pip install selenium
-  
-  pip install pandas
+git clone https://github.com/MD3XTER/Twitch-Farmer.git
 
-  python3 twitch_farmer.py
+cd Twitch-Farmer
+
+pip install selenium
+
+pip install pandas
+
+python3 twitch_farmer.py
 ```
 
 ## Usage
@@ -57,10 +57,10 @@ Now and then Twich changes it's elements ids, classes, etc. In order for the bot
 Example:
 
 ```json
-  "username_input": {
-    "type": "xPath",
-    "value": "//div[contains(@data-a-target,'login-username-input')]/input"
-  },
+"username_input": {
+  "type": "xPath",
+  "value": "//div[contains(@data-a-target,'login-username-input')]/input"
+},
 ```
 
 _If you wan`t to help the project grow, you can create a PR request if some xPaths change in the future._
