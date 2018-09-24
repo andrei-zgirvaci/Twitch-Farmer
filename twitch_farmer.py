@@ -214,7 +214,18 @@ def run_driver(run_with_proxy):
                 "--proxy-server={}".format(current_proxy))
             print("Using proxy: [{}]".format(current_proxy))
 
-    chrome_driver_path = get_full_path("/drivers/chromedriver")
+    current_os = sys.platform
+
+    chrome_driver_file_name = ""
+    if current_os in "darwin":
+        chrome_driver_file_name = "chromedriver_mac64"
+    elif current_os in "linux":
+        chrome_driver_file_name = "chromedriver_linux64"
+    elif current_os in "win32":
+        chrome_driver_file_name = "chromedriver_win32.exe"
+
+    chrome_driver_path = get_full_path(
+        "/drivers/{}".format(chrome_driver_file_name))
 
     driver = webdriver.Chrome(options=chrome_options,
                               executable_path=chrome_driver_path)
