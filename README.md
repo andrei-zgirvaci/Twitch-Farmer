@@ -14,7 +14,7 @@ CONTRIBUTE: Contributions are always welcome!
 
 ## Requirements
 
-* **python** version **3.7.0** installed
+* **python** version >= **3.7.0** installed
 
 ## Installation
 
