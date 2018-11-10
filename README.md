@@ -23,7 +23,7 @@ git clone https://github.com/MD3XTER/Twitch-Farmer.git
 
 cd Twitch-Farmer
 
-pip install selenium pandas
+pip3 install selenium pandas
 
 python3 twitch_farmer.py
 ```
