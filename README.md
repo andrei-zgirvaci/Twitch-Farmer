@@ -61,4 +61,4 @@ Example:
 },
 ```
 
-_If you wan`t to help the project grow, you can create a PR request if some xPaths change in the future._
+_If you wan`t to help the project grow, you can create a PR request if any xPath changes in the future._
