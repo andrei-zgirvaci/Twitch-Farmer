@@ -21,11 +21,11 @@
     },
     "follow_button": {
         "type": "xPath",
-        "value": "//div[@data-target='channel-header-right']//button[@data-a-target='follow-button']"
+        "value": "//div[@class='channel-header__follow-btn']//button"
     },
     "unfollow_button": {
         "type": "xPath",
-        "value": "//div[@data-target='channel-header-right']//button[@data-a-target='unfollow-button']"
+        "value": "//div[@class='channel-header__follow-btn channel-header__follow-btn--following']//button"
     },
     "auth_failed": {
         "type": "xPath",
